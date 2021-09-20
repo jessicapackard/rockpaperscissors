@@ -8,14 +8,21 @@ function computerPlay(possiblePlays)
 let possiblePlays = ['rock', 'paper', 'scissors'];
 console.log(computerPlay(possiblePlays));
 
-/*write a function that plays a single round of rock paper scissors:
-	take two paramenters - player Selection and computer Selection
-	ask player to select rock paper or scissors - using prompt
-		store in case-insensitive variable playerSelection
-	take random computerPlay output and put as computer Selection parameter
+//write a function that plays a single round of rock paper scissors:
+	//take two paramenters - player Selection and computer Selection
+function playRound(playerSelection, computerSelection) {
+}
+
+	//ask player to select rock paper or scissors - using prompt, store in playerInput
+let playerInput = prompt('Type one of these three words: Rock, Paper, Scissors', '');
+//make playerInput case-insensitive, store in playerSelection
+let playerSelection = playerInput.toLowerCase();
+
+
+	//take random computerPlay output and put as computer Selection parameter
 
 	
-	compare computerselection to playerSelection:
+	/*compare computerselection to playerSelection:
 	if player selection is rock and computer selection is paper
 		or if player selection is paper and computer selection is scissors
 		or if player selection is scissors and computer selection is rock
