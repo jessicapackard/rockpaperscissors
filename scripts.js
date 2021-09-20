@@ -1,12 +1,15 @@
 //write function called computerPlay:
 	//randomly return rock, paper, or scissors
+	
 
 function computerPlay(possiblePlays)
-{
-	return possiblePlays[Math.floor(Math.random()*possiblePlays.length)];
+{return possiblePlays[Math.floor(Math.random()*possiblePlays.length)];
 }
 let possiblePlays = ['rock', 'paper', 'scissors'];
-console.log(computerPlay(possiblePlays));
+//store in random selection in variable called ComputerSelection that can be accessed elsewhere
+let computerSelection = computerPlay(possiblePlays);
+
+
 
 //write a function that plays a single round of rock paper scissors:
 	//take two paramenters - player Selection and computer Selection
@@ -17,7 +20,6 @@ function playRound(playerSelection, computerSelection) {
 let playerInput = prompt('Type one of these three words: Rock, Paper, Scissors', '');
 //make playerInput case-insensitive, store in playerSelection
 let playerSelection = playerInput.toLowerCase();
-
 
 	//take random computerPlay output and put as computer Selection parameter
 
