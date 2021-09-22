@@ -27,14 +27,19 @@ function playRound(playerSelection, computerSelection) {
 	//to avoid "already declared" error in console, wrap in brackets to change scope
 	{let playerSelection = playerChoice();
 	let computerSelection = computerPlay();
+		var playerWins = 0;
+		var computerWins = 0;
 if ((playerSelection === 'rock' && computerSelection === 'scissors')
 || (playerSelection === 'paper' && computerSelection === 'rock') 
 || (playerSelection === 'scissors' && computerSelection === 'paper')) {
-	return 'You win! ' + playerSelection + ' beats ' + computerSelection;
-}
+	playerWins++;
+	return 'You win! ' + playerSelection + ' beats ' + computerSelection + ". The score is: You - " + playerWins + " Computer - " + computerWins;}
+
 else if (playerSelection === computerSelection) {
-	return "It's a tie. No winner this round.";
-}
-else {return 'You lose! ' + computerSelection + ' beats ' + playerSelection;}}
-}		
+	return "It's a tie. No winner this round. The score is: You - " + playerWins + " Computer - " + computerWins;}
+
+else {
+	computerWins++;
+	return 'You lose! ' + computerSelection + ' beats ' + playerSelection + ". The score is: You - " + playerWins + " Computer - " + computerWins;}
+}}
 console.log(playRound());
