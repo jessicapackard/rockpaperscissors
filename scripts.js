@@ -1,9 +1,9 @@
 //function to get random computer play from array and return in 'computerSelection' var
 
 function computerPlay() {
-	let computerSelection = possiblePlays[Math.floor(Math.random() * possiblePlays.length)];
-	console.log('The computer chose ' + computerSelection);
-	return computerSelection;
+	let computerChoice = possiblePlays[Math.floor(Math.random() * possiblePlays.length)];
+	console.log('The computer chose ' + computerChoice);
+	return computerChoice;
 }
 let possiblePlays = ['rock', 'paper', 'scissors'];
 
@@ -11,29 +11,30 @@ let possiblePlays = ['rock', 'paper', 'scissors'];
 
 function playerChoice() {
 let playerInput = prompt('Type one of three options: rock, paper, scissors', '');
-let playerSelection = playerInput.toLowerCase();
-	if (playerSelection !== 'rock' && playerSelection !== 'paper' && playerSelection !== 'scissors') {
+let playerPick = playerInput.toLowerCase();
+	if (playerPick !== 'rock' && playerPick !== 'paper' && playerPick !== 'scissors') {
 		alert('Invalid input. Refresh page and try again');	
 	}
 	else {
-	console.log('You chose '+ playerSelection);
-		return playerSelection;	
+	console.log('You chose '+ playerPick);
+		return playerPick;	
 	}
 }
 		
 
 //function to play one round and declare winner of round
 function playRound(playerSelection, computerSelection) {
-	playerChoice();
-	computerPlay();
+	//to avoid "already declared" error in console, wrap in brackets to change scope
+	{let playerSelection = playerChoice();
+	let computerSelection = computerPlay();
 if ((playerSelection === 'rock' && computerSelection === 'scissors')
 || (playerSelection === 'paper' && computerSelection === 'rock') 
 || (playerSelection === 'scissors' && computerSelection === 'paper')) {
 	return 'You win! ' + playerSelection + ' beats ' + computerSelection;
 }
-//else if (playerSelection === computerSelection) {
-	//return "It's a Tie. No winner this round.";
-//}
-//else {return 'You lose! ' + computerSelection + ' beats ' + playerSelection;}
+else if (playerSelection === computerSelection) {
+	return "It's a tie. No winner this round.";
+}
+else {return 'You lose! ' + computerSelection + ' beats ' + playerSelection;}}
 }		
 console.log(playRound());
