@@ -25,8 +25,8 @@ function game() {
 	
 	{let numberOfPlayerWins = 0;
 	let numberOfComputerWins = 0;
-	let score = 'The score is: \nYou - ' + numberOfPlayerWins + ', Computer - ' + numberOfComputerWins;
-
+	let score;
+	
 	//function to play one round and declare winner of round
 let playRound = function(playerSelection, computerSelection) {
 	//to avoid "already declared" error in console, wrap in brackets to change scope
@@ -37,7 +37,8 @@ let playRound = function(playerSelection, computerSelection) {
 || (playerSelection === 'paper' && computerSelection === 'rock') 
 || (playerSelection === 'scissors' && computerSelection === 'paper')) {
 	console.log('You win this round! ' + playerSelection + ' beats ' + computerSelection);
-	return true;
+
+	return score = 'The score is: \nYou - ' + (++numberOfPlayerWins) + ', Computer - ' + numberOfComputerWins;
 	}
 
 	else if (playerSelection === computerSelection) {
@@ -45,14 +46,16 @@ let playRound = function(playerSelection, computerSelection) {
 
 	else {
 	console.log('Dang. ' + computerSelection + ' beats ' + playerSelection + '. The computer wins this round.')
-	return false;
+	return score = 'The score is: \nYou - ' + numberOfPlayerWins + ', Computer - ' + (++numberOfComputerWins);
 	}
 }};
+//let score = 'The score is: \nYou - ' + numberOfPlayerWins + ', Computer - ' + numberOfComputerWins;
 
 for (let roundNumber = 1; roundNumber < 6; roundNumber++) {
 	console.log('ROUND '+ roundNumber);
 	console.log(playRound());
-	if (playRound === true) {
+	console.log(score);
+	/*if (playRound === true) {
 		numberOfPlayerWins += 1;
 		console.log(score);
 	}
@@ -60,7 +63,7 @@ for (let roundNumber = 1; roundNumber < 6; roundNumber++) {
 		console.log(score);}
 	else if (playRound === false) {
 		numberOfComputerWins += 1;
-		console.log(score);}
+		console.log(score);}*/
 }
 
 	//console.log('The score is: \nYou - ' + numberOfPlayerWins + ' Computer - ' + numberOfComputerWins);
@@ -68,4 +71,4 @@ for (let roundNumber = 1; roundNumber < 6; roundNumber++) {
 if (numberOfPlayerWins > numberOfComputerWins) {console.log('You won the game!!')}
 else if (numberOfPlayerWins < numberOfComputerWins) {console.log('You did not win the game :(')}}}
 
-console.log(game());
+game();
