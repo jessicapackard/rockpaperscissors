@@ -20,26 +20,52 @@ let playerPick = playerInput.toLowerCase();
 		return playerPick;	
 	}
 }
-		
+
+function game() {
+	
+	//let playerWins;
+	{let numberOfPlayerWins = 0;
+	let numberOfComputerWins = 0;
+	let score = 'The score is: \nYou - ' + numberOfPlayerWins + ', Computer - ' + numberOfComputerWins;
+for (let roundNumber = 1; roundNumber < 6; roundNumber++) {
+	console.log('ROUND '+ roundNumber);
+	
+	if (playRound() === true) {
+		numberOfPlayerWins += 1;
+		console.log(score);
+	}
+	else {
+		numberOfComputerWins += 1;
+		console.log(score);}
+	
+}
+
+	//console.log('The score is: \nYou - ' + numberOfPlayerWins + ' Computer - ' + numberOfComputerWins);
+
+if (numberOfPlayerWins > numberOfComputerWins) {console.log('You won the game!!')}
+else if (numberOfPlayerWins < numberOfComputerWins) {console.log('You did not win the game :(')}}}
+
 
 //function to play one round and declare winner of round
 function playRound(playerSelection, computerSelection) {
 	//to avoid "already declared" error in console, wrap in brackets to change scope
 	{let playerSelection = playerChoice();
 	let computerSelection = computerPlay();
-		var playerWins = 0;
-		var computerWins = 0;
+	//let playerWins;
 if ((playerSelection === 'rock' && computerSelection === 'scissors')
 || (playerSelection === 'paper' && computerSelection === 'rock') 
 || (playerSelection === 'scissors' && computerSelection === 'paper')) {
-	playerWins++;
-	return 'You win! ' + playerSelection + ' beats ' + computerSelection + ". The score is: You - " + playerWins + " Computer - " + computerWins;}
+	console.log('You win this round!');
+	return true;
+	}
 
 else if (playerSelection === computerSelection) {
-	return "It's a tie. No winner this round. The score is: You - " + playerWins + " Computer - " + computerWins;}
+	return "It's a tie. No winner this round.";}
 
 else {
-	computerWins++;
-	return 'You lose! ' + computerSelection + ' beats ' + playerSelection + ". The score is: You - " + playerWins + " Computer - " + computerWins;}
+	console.log('Dang. The computer wins this round.')
+	return false;
+	}
 }}
-console.log(playRound());
+
+console.log(game());
