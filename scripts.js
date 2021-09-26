@@ -58,7 +58,7 @@ let score;
 				', Computer - ' + (++numberOfComputerWins);
 	}
 }};
-
+//one game = 5 rounds; declare winner
 for (let roundNumber = 1; roundNumber < 6; roundNumber++) {
 	console.log('ROUND '+ roundNumber);
 	console.log(playRound());
