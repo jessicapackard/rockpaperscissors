@@ -42,8 +42,9 @@ let playRound = function(playerSelection, computerSelection) {
 	}
 
 	else if (playerSelection === computerSelection) {
-	return "It's a tie. No winner this round.";}
-
+	console.log("It's a tie. No winner this round.");
+	return score = 'The score is: \nYou - ' + numberOfPlayerWins + ', Computer - ' + numberOfComputerWins;
+	}
 	else {
 	console.log('Dang. ' + computerSelection + ' beats ' + playerSelection + '. The computer wins this round.')
 	return score = 'The score is: \nYou - ' + numberOfPlayerWins + ', Computer - ' + (++numberOfComputerWins);
@@ -54,7 +55,6 @@ let playRound = function(playerSelection, computerSelection) {
 for (let roundNumber = 1; roundNumber < 6; roundNumber++) {
 	console.log('ROUND '+ roundNumber);
 	console.log(playRound());
-	console.log(score);
 	/*if (playRound === true) {
 		numberOfPlayerWins += 1;
 		console.log(score);
@@ -68,7 +68,12 @@ for (let roundNumber = 1; roundNumber < 6; roundNumber++) {
 
 	//console.log('The score is: \nYou - ' + numberOfPlayerWins + ' Computer - ' + numberOfComputerWins);
 
-if (numberOfPlayerWins > numberOfComputerWins) {console.log('You won the game!!')}
-else if (numberOfPlayerWins < numberOfComputerWins) {console.log('You did not win the game :(')}}}
+if (numberOfPlayerWins > numberOfComputerWins) {console.log('GAME OVER: You won the game!! Refresh page to play again.')}
+else if (numberOfPlayerWins < numberOfComputerWins) {console.log('GAME OVER: You did not win the game :( Refresh page to play again.')}
+else if (numberOfComputerWins == numberOfPlayerWins) {
+	console.log('GAME OVER: You tied with the computer! Refresh page to play again.')
+
+}
+}}
 
 game();
